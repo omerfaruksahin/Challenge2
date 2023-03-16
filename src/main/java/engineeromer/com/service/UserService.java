@@ -57,4 +57,8 @@ public class UserService {
         User user = userDao.findByEmail(email);
         return modelMapper.map(user,UserResponseDto.class);
     }
+
+    public User findById(int userId){
+        return userDao.findById(userId).orElseThrow();
+    }
 }

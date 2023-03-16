@@ -16,9 +16,11 @@ public class OrganizationSaveRequestDto {
 
     private int registryNumber;
 
-    private int organizationMail;
+    private String organizationMail;
 
     private int phoneNumber;
 
     private int companySize;
+
+
 }

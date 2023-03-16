@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -33,8 +34,20 @@ public class User {
 
     private LocalDate createdDate;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
+    @OneToOne(mappedBy = "user")
+    private Invitation invitation;
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "USER_ORGANIZATION",
+            joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "organizationId")
+    )
     @JsonManagedReference
-    private Set<Organization> organizationList;
+    private Set<Organization> organizationList = new HashSet<>();
+
+    public void addOrganization(Organization organization){
+        organizationList.add(organization);
+    }
 
 }

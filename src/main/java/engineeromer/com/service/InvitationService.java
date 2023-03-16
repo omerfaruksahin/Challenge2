@@ -40,5 +40,7 @@ public class InvitationService {
         return invitationDao.findAll().stream().map(item->modelMapper.map(item,InvitationResponseDto.class)).toList();
     }
 
+    //public InvitationResponseDto sendInvitationUser()
+
 
 }

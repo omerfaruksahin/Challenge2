@@ -15,7 +15,7 @@ public class InvitationSaveRequestDto {
 
     private Category category;
 
-    private User user;
+    private int userId;
 
 
 }

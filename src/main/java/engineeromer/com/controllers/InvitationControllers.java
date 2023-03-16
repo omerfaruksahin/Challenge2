@@ -17,17 +17,17 @@ import java.util.List;
 public class InvitationControllers {
     private final InvitationService invitationService;
 
-    @PostMapping("/saveUser")
+    @PostMapping("/saveInvitation")
     public ResponseEntity<InvitationResponseDto> saveInvitation(@RequestBody InvitationSaveRequestDto invitationSaveRequestDto){
         return new ResponseEntity<>(invitationService.saveInvitation(invitationSaveRequestDto), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/deleteUser")
+    @DeleteMapping("/deleteInvitation")
     public ResponseEntity<Boolean> deleteUser(@RequestBody DeleteInvitationRequestDto deleteInvitationRequestDto){
         return new ResponseEntity<>(invitationService.deleteInvatation(deleteInvitationRequestDto),HttpStatus.OK);
     }
 
-    @GetMapping("/userList")
+    @GetMapping("/InvitationList")
     public ResponseEntity<List<InvitationResponseDto>> getUserList(){
         return new ResponseEntity<>(invitationService.getAllInvitation(),HttpStatus.OK);
     }

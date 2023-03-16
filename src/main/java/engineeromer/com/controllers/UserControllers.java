@@ -43,7 +43,7 @@ public class UserControllers {
         return new ResponseEntity<>(userService.findNormalizedNameAccordingtoUser(normalizedName),HttpStatus.OK);
     }
 
-    @GetMapping("/getFullNameAccordinToNormalizedName")
+    @GetMapping("/getUserAccordinToEmail")
     public ResponseEntity<UserResponseDto> getUserAccordingToEmail(@RequestParam String email){
         return new ResponseEntity<>(userService.findUserAccordingToEmail(email),HttpStatus.OK);
     }

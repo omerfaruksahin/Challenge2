@@ -12,7 +12,6 @@ public class UserSaveRequestDto {
 
     private String fullName;
 
-
     private String email;
 
     private String normalizedName;

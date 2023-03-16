@@ -1,9 +1,12 @@
 package engineeromer.com.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -26,7 +29,7 @@ public class Organization {
     @Column(unique = true)
     private int registryNumber;
 
-    private int organizationMail;
+    private String organizationMail;
 
     private LocalDate yearFounded;
 
@@ -34,9 +37,9 @@ public class Organization {
 
     private int companySize;
 
-    @JoinColumn(name = "userId")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    @ManyToMany(mappedBy = "organizationList",fetch = FetchType.LAZY)
+    @JsonBackReference
+    private Set<User> users = new HashSet<>();
 
 
 
